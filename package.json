@@ -1,0 +1,66 @@
+{
+  "name": "atomiccss-gen",
+  "version": "0.1.0",
+  "description": "Tiny atomic CSS generator with arbitrary values support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "bin": {
+    "atomiccss-gen": "bin/cli.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "bin",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "test": "tsx --test tests/**/*.test.ts",
+    "prepublishOnly": "npm run build",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "atomic-css",
+    "css",
+    "tailwind",
+    "utility",
+    "generator",
+    "css-generator",
+    "css-in-js",
+    "utility-classes"
+  ],
+  "author": "Aryan Kumar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aryanjha256/atomiccss-gen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aryanjha256/atomiccss-gen/issues"
+  },
+  "homepage": "https://github.com/aryanjha256/atomiccss-gen#readme",
+  "dependencies": {
+    "chokidar": "^3.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/aryanjha256"
+  }
+}

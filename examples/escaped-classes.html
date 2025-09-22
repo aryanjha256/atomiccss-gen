@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atomiccss-gen Example with Escaped Classes</title>
+    <style>
+        /* Example of properly escaped CSS class names */
+        .w-\[50\%\] {
+            width: 50%;
+        }
+
+        .h-\[200px\] {
+            height: 200px;
+        }
+
+        .text-\[red\] {
+            color: red;
+        }
+
+        .bg-\[blue\] {
+            background-color: blue;
+        }
+
+        .p-\[10px\] {
+            padding: 10px;
+        }
+
+        .m-\[5px\] {
+            margin: 5px;
+        }
+
+        .rounded-\[4px\] {
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>atomiccss-gen Example</h1>
+
+    <p>Below is a demonstration of properly escaped CSS classes:</p>
+
+    <div class="w-[50%] h-[200px] bg-[#eee] p-[20px] m-[10px] rounded-[8px]">
+        <p class="text-[blue]">This box is styled with atomic CSS classes.</p>
+        <p>The class names in HTML are <code>w-[50%] h-[200px] bg-[#eee]</code>, etc.</p>
+        <p>But in the generated CSS, they are properly escaped as <code>.w-\[50\%\] .h-\[200px\] .bg-\[\#eee\]</code>,
+            etc.</p>
+    </div>
+
+    <div>
+        <h2>Generated CSS Example:</h2>
+        <pre><code>
+.w-\[50\%\] { width: 50%; }
+.h-\[200px\] { height: 200px; }
+.text-\[red\] { color: red; }
+    </code></pre>
+    </div>
+</body>
+
+</html>
