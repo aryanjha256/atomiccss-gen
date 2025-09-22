@@ -1,0 +1,52 @@
+name: Publish Package to NPM
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "bin/**"
+      - "package.json"
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Required for npm provenance
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+          registry-url: "https://registry.npmjs.org"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build package
+        run: npm run build
+
+      - name: Publish to npm
+        # Only publish if the package version has changed
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          NPM_VERSION=$(npm view atomiccss-gen version 2>/dev/null || echo "0.0.0")
+
+          echo "Package version: $PACKAGE_VERSION"
+          echo "NPM version: $NPM_VERSION"
+
+          if [ "$PACKAGE_VERSION" != "$NPM_VERSION" ]; then
+            npm publish --provenance
+            echo "Published new version $PACKAGE_VERSION to npm"
+          else
+            echo "Version $PACKAGE_VERSION already published, skipping."
+          fi
