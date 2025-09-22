@@ -6,6 +6,7 @@
 - Added GitHub Actions workflow for automated publishing
 - Added version bump scripts for easier releases
 - Fixed module imports in ESM context
+- Added basic test infrastructure
 
 # Version: 0.1.0
 

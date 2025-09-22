@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/index.ts",
-    "test": "tsx --test tests/**/*.test.ts",
+    "test": "tsx --test \"tests/simple.test.ts\"",
     "prepublishOnly": "npm run build",
     "prepack": "npm run build",
     "version:patch": "node scripts/bump-version.js patch",

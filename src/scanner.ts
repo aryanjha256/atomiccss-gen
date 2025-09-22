@@ -10,7 +10,7 @@ interface ScanOptions {
 }
 
 // Regex to find atomic CSS class names
-const CLASS_REGEX = /\b([a-zA-Z0-9]+(-\[[^\]]+\]))\b/g;
+const CLASS_REGEX = /\b([a-zA-Z0-9]+(?:-\[[^\]]+\]))\b/g;
 
 function extractClassesFromFile(filePath: string): Set<string> {
   const content = fs.readFileSync(filePath, "utf-8");
