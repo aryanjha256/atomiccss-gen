@@ -2,7 +2,9 @@
 
 ## What's Changed
 
-- 
+- Fixed GitHub Actions release workflow permissions
+- Updated package keywords
+- Improved workflow triggers for better CI/CD reliability
 
 # Version: 0.1.1
 
