@@ -2,7 +2,10 @@
 
 ## What's Changed
 
-- 
+- Added proper CSS class name escaping for special characters
+- Added GitHub Actions workflow for automated publishing
+- Added version bump scripts for easier releases
+- Fixed module imports in ESM context
 
 # Version: 0.1.0
 
