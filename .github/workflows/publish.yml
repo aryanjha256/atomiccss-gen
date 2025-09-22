@@ -6,7 +6,9 @@ on:
     paths:
       - "src/**"
       - "bin/**"
+      - "tests/**"
       - "package.json"
+      - ".github/workflows/**"
   workflow_dispatch: # Allows manual triggering
 
 jobs:
