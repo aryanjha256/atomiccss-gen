@@ -19,7 +19,7 @@ describe("scanner", () => {
           <p class="p-[10px] m-[5px]">Test</p>
         </div>
       `;
-      
+
       const classes = extractClassesForTest(html);
       strictEqual(classes.size, 5);
       strictEqual(classes.has("w-[100px]"), true);
@@ -39,7 +39,7 @@ describe("scanner", () => {
           );
         }
       `;
-      
+
       const classes = extractClassesForTest(jsx);
       strictEqual(classes.size, 4);
       strictEqual(classes.has("flex-[1]"), true);
@@ -50,7 +50,7 @@ describe("scanner", () => {
 
     it("should handle multiple classes on the same element", () => {
       const content = '<div class="w-[50%] h-[100px] p-[20px]"></div>';
-      
+
       const classes = extractClassesForTest(content);
       strictEqual(classes.size, 3);
       strictEqual(classes.has("w-[50%]"), true);
@@ -59,8 +59,9 @@ describe("scanner", () => {
     });
 
     it("should not extract regular classes without brackets", () => {
-      const content = '<div class="regular-class w-[50px] another-class"></div>';
-      
+      const content =
+        '<div class="regular-class w-[50px] another-class"></div>';
+
       const classes = extractClassesForTest(content);
       strictEqual(classes.size, 1);
       strictEqual(classes.has("w-[50px]"), true);

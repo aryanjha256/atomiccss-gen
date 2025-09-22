@@ -52,29 +52,33 @@ describe("integration", () => {
       srcDir: testDir,
       outFile: outputFile,
     });
-    
+
     // Let's see the actual content for debugging
     console.log("Generated CSS:", fs.readFileSync(outputFile, "utf-8"));
 
     // Check if the output file exists
-    strictEqual(fs.existsSync(outputFile), true, "Output file should be created");
+    strictEqual(
+      fs.existsSync(outputFile),
+      true,
+      "Output file should be created"
+    );
 
     // Read and verify the generated CSS
     const css = fs.readFileSync(outputFile, "utf-8");
-    
+
     // Check for expected CSS classes
     const expectedClasses = [
       ".w-\\[300px\\]{width:300px;}",
       ".h-\\[200px\\]{height:200px;}",
       ".text-\\[\\#ff0000\\]{color:#ff0000;}",
       ".p-\\[20px\\]{padding:20px;}",
-      ".m-\\[10px\\]{margin:10px;}"
+      ".m-\\[10px\\]{margin:10px;}",
     ];
 
     for (const expectedClass of expectedClasses) {
       strictEqual(
-        css.includes(expectedClass), 
-        true, 
+        css.includes(expectedClass),
+        true,
         `CSS should include ${expectedClass}`
       );
     }

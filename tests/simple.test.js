@@ -1,5 +1,5 @@
-import { describe, it } from 'node:test';
-import { strictEqual } from 'assert';
+import { describe, it } from "node:test";
+import { strictEqual } from "assert";
 
 describe("simple test", () => {
   it("should pass", () => {
